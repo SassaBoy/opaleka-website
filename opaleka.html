@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>Download Opaleka App - Convenience in Your Pocket</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f3f4f6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #34495E;
+      font-weight: bold;
+      margin-left: 15px;
+      font-size: 16px;
+    }
+
+    .logo {
+    font-size: 2.5rem;
+    color: #00AEEF;
+    font-weight: bold;
+    font-style: italic;
+    margin-left: 30px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 11;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 30px;
+      transform: translateX(100%);
+      transition: transform 0.5s ease-in-out;
+      z-index: 9;
+      margin-top: 50px;
+    }
+
+    .modal.show {
+      transform: translateX(0);
+    }
+
+    .modal a {
+      font-size: 1.7rem;
+      color: #000;
+      text-decoration: none;
+      margin: 10px 0;
+      font-weight: bold;
+      width: 100%;
+      
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px;
+      background: linear-gradient(to right, #00AEEF, #00AEEF);
+      min-height: calc(100vh - 90px);
+    }
+
+    .text-section {
+      color: white;
+      max-width: 600px;
+    }
+
+    .text-section h1 {
+      font-size: 3.5rem;
+      margin: 0;
+    }
+
+    .text-section p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .download-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .download-buttons a img {
+      width: 160px;
+      height: 50px;
+      object-fit: contain;
+    }
+
+    .app-preview {
+      width: 55%;
+      max-width: 800px;
+      margin-right: -120px;
+    }
+
+    .app-preview img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .qr-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+
+    .qr-section img {
+      width: 150px;
+      height: 150px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer a {
+      color: #00AEEF;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .text-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .app-preview {
+        width: 90%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .download-buttons {
+        justify-content: center;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+      .logo {
+     
+      margin-left: 10px;
+    }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Opaleka</div>
+    <nav class="menu">
+      <a href="#">Service Provider</a>
+      <a href="#">Client</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms & Conditions</a>
+    </nav>
+    <div class="menu-icon" id="menuIcon">&#9776;</div>
+  </header>
+
+  <div class="modal" id="modal">
+    <a href="#">Service Provider</a>
+    <a href="#">Client</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms & Conditions</a>
+  </div>
+
+  <div class="container">
+    <div class="text-section">
+      <h1>Download Opaleka Today!</h1>
+      <p>Scan the QR code or use the buttons below to download the app and experience the convenience firsthand.</p>
+
+      <div class="download-buttons">
+        <a href="https://play.google.com/store">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+        </a>
+        <a href="https://www.apple.com/app-store/">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+        </a>
+      </div>
+
+      <div class="qr-section">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://your-app-download-link.com" alt="QR Code">
+        <p>Scan to download</p>
+      </div>
+    </div>
+
+    <div class="app-preview">
+      <img src="preview1.png" alt="App Preview">
+    </div>
+  </div>
+
+  <footer class="footer">
+    <a id="privacy" href="#">Privacy Policy</a>
+    <a id="terms" href="#">Terms & Conditions</a>
+    <p>&copy; 2024 Opaleka. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuIcon = document.getElementById('menuIcon');
+    const modal = document.getElementById('modal');
+    let isOpen = false;
+
+    menuIcon.addEventListener('click', () => {
+      isOpen = !isOpen;
+      modal.classList.toggle('show');
+      menuIcon.innerHTML = isOpen ? '&times;' : '&#9776;';
+    });
+  </script>
+</body>
+</html>
