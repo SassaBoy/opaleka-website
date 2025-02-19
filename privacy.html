@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-     <!-- Favicon for Browsers -->
-<link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
-<link rel="shortcut icon" href="./icons/favicon.ico">
-
-<!-- For Different Devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
-
-<!-- Web App Manifest -->
-<link rel="manifest" href="site.webmanifest">
-<title>Opaleka Privacy Policy | Your Data, Your Control</title>
-<meta name="description" content="Opaleka values your privacy. Read our Privacy Policy to understand how we collect, use, and protect your personal data while using our services.">
-<meta name="keywords" content="Opaleka privacy policy, user data protection, personal data security, data collection policy, service provider privacy, GDPR compliance">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+    <link rel="shortcut icon" href="./icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <title>Opaleka Privacy Policy | Your Data, Your Control</title>
+    <meta name="description" content="Opaleka values your privacy. Read our Privacy Policy to understand how we collect, use, and protect your personal data while using our services.">
+    <meta name="keywords" content="Opaleka privacy policy, user data protection, personal data security, data collection policy, service provider privacy, GDPR compliance">
 
     <style>
         :root {
             --primary-color: #0C0032;
             --secondary-color: #190061;
             --accent-color: #5643fd;
-            --glow-color: #7d67ff;
             --light-purple: #a68eff;
             --text-color: #fff;
             --transition: all 0.3s ease;
+            --border-color: rgba(86, 67, 253, 0.2);
+            --card-bg: rgba(25, 0, 97, 0.5);
         }
 
         * {
@@ -44,6 +41,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            line-height: 1.6;
         }
 
         .navbar {
@@ -52,12 +50,12 @@
             align-items: center;
             padding: 1rem 5%;
             background: rgba(12, 0, 50, 0.95);
-            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(86, 67, 253, 0.2);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
@@ -114,10 +112,7 @@
             transition: var(--transition);
         }
 
-        .menu a:hover::after {
-            width: 100%;
-        }
-
+        .menu a:hover::after,
         .menu a.active::after {
             width: 100%;
         }
@@ -129,100 +124,179 @@
             flex: 1;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .hero-content {
             text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .content-section {
-            background: rgba(25, 0, 97, 0.5);
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 2rem;
             margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-section h2 {
+            color: var(--light-purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .content-section ul {
+            list-style-position: inside;
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .important-note {
+            background: rgba(86, 67, 253, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
         }
 
         .footer {
             background: rgba(12, 0, 50, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
-            border-top: 1px solid rgba(86, 67, 253, 0.2);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer a {
+            color: var(--light-purple);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-support {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(86, 67, 253, 0.1);
+            border-radius: 8px;
+        }
+
+        .social-media {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-media h3 {
+            margin-bottom: 1rem;
+            color: var(--light-purple);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-
             .menu {
-                display: none;
+                display: none !important;
             }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .container {
-                padding: 7rem 2rem 4rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 6rem 1rem 3rem;
-            }
-
+            
             .hero-content h1 {
                 font-size: 2rem;
             }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
 
-            .footer {
-                padding: 0.8rem;
+            .social-links {
+                gap: 1rem;
             }
         }
-        /* Preloader */
-  .preloader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
-  }
 
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.2);
-    border-top: 5px solid var(--accent-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
+        .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-  .preloader.fade-out {
-    opacity: 0;
-    visibility: hidden;
-  }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body onload="fadeOutPreloader()">
     <div class="preloader">
-      <div class="spinner"></div>
+        <div class="spinner"></div>
     </div>
-  
+
     <header class="navbar">
         <div class="logo"><a href="index.html">Opaleka</a></div>
         <nav class="menu">
@@ -237,32 +311,93 @@
 
     <div class="container">
         <div class="hero-content">
-            <h1>Opaleka Privacy Policy – How We Protect Your Data</h1>
-            <p><strong>Effective Date:</strong> February 2025 | <strong>Updated for Transparency & Compliance</strong></p>
-
+            <h1>Opaleka Privacy Policy</h1>
+            <p><strong>Effective Date:</strong> February 2025 | <strong>Your Data, Your Control</strong></p>
         </div>
 
         <section class="content-section">
-            <h2>Introduction – Your Privacy Matters</h2>
-            <p>At Opaleka, your privacy is our priority. This Privacy Policy outlines the information we collect, why we collect it, and how we protect your data to ensure transparency and security.</p>
+            <h2>Data Collection & Usage</h2>
+            <p>We collect and process the following types of information:</p>
+            <ul>
+                <li>Personal Information (name, email, contact details)</li>
+                <li>Service Provider Professional Details</li>
+                <li>Client Booking Information</li>
+                <li>Payment Transaction Data</li>
+                <li>Device and Usage Information</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Transparency Notice:</strong> We only collect information that is necessary to provide and improve our services. Your data is never sold to third parties.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Data Protection Measures</h2>
+            <ul>
+                <li>End-to-end encryption for sensitive data</li>
+                <li>Regular security audits and updates</li>
+                <li>Strict access controls and authentication</li>
+                <li>Compliance with global privacy standards</li>
+                <li>Secure data centers with redundancy</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Your Privacy Rights</h2>
+            <p>You have full control over your personal data:</p>
+            <ul>
+                <li>Right to access your personal data</li>
+                <li>Right to correct inaccurate information</li>
+                <li>Right to delete your account and data</li>
+                <li>Right to opt-out of marketing communications</li>
+                <li>Right to data portability</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>User Control:</strong> Access your privacy settings anytime through your account dashboard to manage your preferences.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Cookie Policy</h2>
+            <p>Our website uses cookies to enhance your experience:</p>
+            <ul>
+                <li>Essential cookies for basic functionality</li>
+                <li>Analytics cookies to improve our service</li>
+                <li>Preference cookies to remember your settings</li>
+                <li>Marketing cookies (optional & configurable)</li>
+            </ul>
         </section>
     </div>
 
     <footer class="footer">
         <p>&copy; 2025 Opaleka. All rights reserved.</p>
-        <p>For any inquiries regarding our Cookies Policy, please contact us at 
-            <a href="mailto:info@opaleka.com" style="color: var(--light-purple); text-decoration: underline;">info@opaleka.com</a>
-        </p>
+        <div class="contact-support">
+            <p>For privacy-related inquiries:</p>
+            <p>Email: <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
+            <p>Data Protection Officer: Available Monday - Friday, 8:00 AM - 5:00 PM (GMT+2)</p>
+            <p>Emergency Support: 24/7 for data breach reporting</p>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/opaleka" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://facebook.com/opaleka" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/opaleka" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
     </footer>
-    
 
     <script>
         function fadeOutPreloader() {
-          setTimeout(() => {
-            document.querySelector('.preloader').classList.add('fade-out');
-          }, 1000); // Delay for 1 second
+            setTimeout(() => {
+                document.querySelector('.preloader').classList.add('fade-out');
+            }, 1000);
         }
-      </script>
-      
+    </script>
 </body>
 </html>

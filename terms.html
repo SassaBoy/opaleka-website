@@ -4,32 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-     <!-- Favicon for Browsers -->
-<link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
-<link rel="shortcut icon" href="./icons/favicon.ico">
-
-<!-- For Different Devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
-
-<!-- Web App Manifest -->
-<link rel="manifest" href="site.webmanifest">
-<title>Opaleka Terms & Conditions | User Agreement & Legal Information</title>
-<meta name="description" content="Read Opaleka’s Terms & Conditions to understand your rights and obligations when using our service. Learn about intellectual property, liabilities, and user responsibilities.">
-
-<meta name="keywords" content="Opaleka terms and conditions, service terms, user agreement, legal terms, online services policy, intellectual property rights, liability policy">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+    <link rel="shortcut icon" href="./icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <title>Opaleka Terms & Conditions | User Agreement & Legal Information</title>
+    <meta name="description" content="Read Opaleka's Terms & Conditions to understand your rights and obligations when using our service. Learn about intellectual property, liabilities, and user responsibilities.">
+    <meta name="keywords" content="Opaleka terms and conditions, service terms, user agreement, legal terms, online services policy">
 
     <style>
         :root {
             --primary-color: #0C0032;
             --secondary-color: #190061;
             --accent-color: #5643fd;
-            --glow-color: #7d67ff;
             --light-purple: #a68eff;
             --text-color: #fff;
             --transition: all 0.3s ease;
+            --border-color: rgba(86, 67, 253, 0.2);
+            --card-bg: rgba(25, 0, 97, 0.5);
         }
 
         * {
@@ -45,6 +41,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            line-height: 1.6;
         }
 
         .navbar {
@@ -53,12 +50,12 @@
             align-items: center;
             padding: 1rem 5%;
             background: rgba(12, 0, 50, 0.95);
-            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(86, 67, 253, 0.2);
+            border-bottom: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
@@ -115,10 +112,7 @@
             transition: var(--transition);
         }
 
-        .menu a:hover::after {
-            width: 100%;
-        }
-
+        .menu a:hover::after,
         .menu a.active::after {
             width: 100%;
         }
@@ -130,100 +124,178 @@
             flex: 1;
         }
 
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .hero-content {
             text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         .content-section {
-            background: rgba(25, 0, 97, 0.5);
+            background: var(--card-bg);
             border-radius: 15px;
             padding: 2rem;
             margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-section h2 {
+            color: var(--light-purple);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .content-section ul {
+            list-style-position: inside;
+            margin: 1rem 0;
+            padding-left: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .content-section li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .important-note {
+            background: rgba(86, 67, 253, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
         }
 
         .footer {
             background: rgba(12, 0, 50, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
+            padding: 2rem;
             text-align: center;
-            border-top: 1px solid rgba(86, 67, 253, 0.2);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer a {
+            color: var(--light-purple);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-support {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(86, 67, 253, 0.1);
+            border-radius: 8px;
+        }
+
+        .social-media {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-media h3 {
+            margin-bottom: 1rem;
+            color: var(--light-purple);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-
             .menu {
-                display: none;
+                display: none !important;
             }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .container {
-                padding: 7rem 2rem 4rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 6rem 1rem 3rem;
-            }
-
+            
             .hero-content h1 {
                 font-size: 2rem;
             }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
 
-            .footer {
-                padding: 0.8rem;
+            .social-links {
+                gap: 1rem;
             }
         }
-         /* Preloader */
-  .preloader {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
-  }
 
-  .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid rgba(255, 255, 255, 0.2);
-    border-top: 5px solid var(--accent-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
+        .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
 
-  .preloader.fade-out {
-    opacity: 0;
-    visibility: hidden;
-  }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
     </style>
 </head>
 <body onload="fadeOutPreloader()">
     <div class="preloader">
-      <div class="spinner"></div>
+        <div class="spinner"></div>
     </div>
-  
     <header class="navbar">
         <div class="logo"><a href="index.html">Opaleka</a></div>
         <nav class="menu">
@@ -238,36 +310,94 @@
 
     <div class="container">
         <div class="hero-content">
-            <h1>Opaleka Terms & Conditions – Your Legal Rights & Responsibilities</h1>
-            <p><strong>Effective Date:</strong> February 2025 | <strong>Updated for Clarity & Compliance</strong></p>
-
+            <h1>Terms & Conditions</h1>
+            <p><strong>Effective Date:</strong> February 2025 | <strong>Clear & Transparent Guidelines</strong></p>
         </div>
 
         <section class="content-section">
-            <h2>Agreement to Terms – Understanding Your Commitment</h2>
-            <p>By using the Opaleka mobile app or website (the "Service"), you acknowledge that you have read, understood, and agreed to these Terms and Conditions, including any future updates.</p>
+            <h2>Service Agreement</h2>
+            <p>By using Opaleka's platform, you agree to comply with our terms:</p>
+            <ul>
+                <li>Complete registration with accurate information</li>
+                <li>Maintain account security and confidentiality</li>
+                <li>Use services in accordance with local laws</li>
+                <li>Accept responsibility for all account activities</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Legal Notice:</strong> These terms form a binding agreement. Using our services indicates acceptance of all terms and conditions.</p>
+            </div>
         </section>
 
         <section class="content-section">
-            <h2>Intellectual Property – Protecting Our Brand & Content</h2>
-            <p>All content, branding, trademarks, and intellectual property on the Opaleka platform are owned by Opaleka and its licensors. Unauthorized use, reproduction, or modification is strictly prohibited.</p>
+            <h2>Service Provider Requirements</h2>
+            <p>Service providers must maintain professional standards:</p>
+            <ul>
+                <li>Valid professional certifications and licenses</li>
+                <li>Timely response to client requests (within 24 hours)</li>
+                <li>Accurate service descriptions and pricing</li>
+                <li>Compliance with local regulations and safety standards</li>
+                <li>Professional conduct and service quality</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Quality Assurance:</strong> Regular performance reviews ensure maintenance of service standards. Non-compliance may result in account suspension.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>User Conduct & Responsibilities</h2>
+            <ul>
+                <li>Respectful communication with all platform users</li>
+                <li>Honest feedback and accurate service reviews</li>
+                <li>Protection of personal and account information</li>
+                <li>Compliance with booking and cancellation policies</li>
+                <li>Proper use of platform features and services</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Platform Policies & Protection</h2>
+            <ul>
+                <li>Zero tolerance for fraudulent activities</li>
+                <li>Regular security updates and monitoring</li>
+                <li>Data protection and privacy compliance</li>
+                <li>Dispute resolution procedures</li>
+                <li>Service quality monitoring and feedback systems</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Safety Advisory:</strong> Report suspicious activities immediately. Opaleka maintains strict security protocols to protect all users.</p>
+            </div>
         </section>
     </div>
 
     <footer class="footer">
         <p>&copy; 2025 Opaleka. All rights reserved.</p>
-        <p>For any inquiries regarding our Cookies Policy, please contact us at 
-            <a href="mailto:info@opaleka.com" style="color: var(--light-purple); text-decoration: underline;">info@opaleka.com</a>
-        </p>
+        <div class="contact-support">
+            <p>For terms & conditions inquiries:</p>
+            <p>Email: <a href="mailto:privacy@opaleka.com">privacy@opaleka.com</a></p>
+            <p>Support Hours: Monday - Friday, 8:00 AM - 5:00 PM (GMT+2)</p>
+            <p>Emergency Support: Available 24/7 for urgent legal matters</p>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/opaleka" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://facebook.com/opaleka" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/opaleka" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
     </footer>
-    
     <script>
         function fadeOutPreloader() {
-          setTimeout(() => {
-            document.querySelector('.preloader').classList.add('fade-out');
-          }, 1000); // Delay for 1 second
+            setTimeout(() => {
+                document.querySelector('.preloader').classList.add('fade-out');
+            }, 1000);
         }
-      </script>
-      
+    </script>
 </body>
 </html>
