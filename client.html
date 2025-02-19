@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <!-- Web App Manifest -->
 <link rel="manifest" href="site.webmanifest">
 <title>Opaleka - Book Trusted Service Providers in Namibia | Home & Personal Services</title>
@@ -417,6 +417,44 @@
     opacity: 0;
     visibility: hidden;
   }
+
+  .contact-support {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(86, 67, 253, 0.1);
+    border-radius: 8px;
+}
+
+.social-media {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.social-media h3 {
+    margin-bottom: 1rem;
+    color: var(--light-purple);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: var(--transition);
+    opacity: 0.8;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+    transform: translateY(-3px);
+}
   </style>
 </head>
 <body onload="fadeOutPreloader()">
@@ -515,11 +553,27 @@
 
   <footer class="footer">
     <p>&copy; 2025 Opaleka. All rights reserved.</p>
-    <p>For any inquiries regarding our Cookies Policy, please contact us at 
-        <a href="mailto:info@opaleka.com" style="color: var(--light-purple); text-decoration: underline;">info@opaleka.com</a>
-    </p>
+    <div class="contact-support">
+        <p>For privacy-related inquiries:</p>
+        <p>Email: <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
+        <p>Support Hours: Monday - Friday, 8:00 AM - 5:00 PM (Namibia Time, GMT+2)</p>
+        <p>Emergency Support: 24/7 for data breach reporting</p>
+    </div>
+    <div class="social-media">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/opaleka/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61567409875373" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/opaleka.namibia/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
 </footer>
-
 
   <script>
     const menuIcon = document.getElementById('menuIcon');
