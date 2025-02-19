@@ -2,187 +2,428 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>Download Opaleka App - Convenience in Your Pocket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Favicon for Browsers -->
+<link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+<link rel="shortcut icon" href="./icons/favicon.ico">
+
+<!-- For Different Devices -->
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="site.webmanifest">
+
+<title>Opaleka - Find Trusted Service Providers in Namibia</title>
+<meta name="description" content="Opaleka connects you with trusted service providers across Namibia. Book home services, repairs, and professionals easily.">
+<meta name="keywords" content="service providers in Namibia, book services online Namibia, home repairs Namibia, trusted professionals in Namibia">
+
   <style>
-    body {
+    :root {
+      --primary-color: #0C0032;
+      --secondary-color: #190061;
+      --accent-color: #5643fd;
+      --glow-color: #7d67ff;
+      --light-purple: #a68eff;
+      --text-color: #fff;
+      --transition: all 0.3s ease;
+    }
+
+    * {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #f3f4f6;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary-color);
+      min-height: 100vh;
+      color: var(--text-color);
+      overflow-x: hidden;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 30px;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      position: relative;
-      z-index: 10;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: #34495E;
-      font-weight: bold;
-      margin-left: 15px;
-      font-size: 16px;
+      padding: 1rem 5%;
+      background-color: rgba(12, 0, 50, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(86, 67, 253, 0.2);
     }
 
     .logo {
-    font-size: 2.5rem;
-    color: #00AEEF;
-    font-weight: bold;
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 800;
+    letter-spacing: 2px;
     font-style: italic;
-    margin-left: 30px;
-    text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+.logo a {
+    color: var(--text-color);
+    text-decoration: none;
 }
 
 
-    .menu-icon {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      z-index: 11;
-    }
-
     .menu {
       display: flex;
-      align-items: center;
-      gap: 15px;
+      gap: 2rem;
     }
 
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      padding: 30px;
-      transform: translateX(100%);
-      transition: transform 0.5s ease-in-out;
-      z-index: 9;
-      margin-top: 50px;
-    }
-
-    .modal.show {
-      transform: translateX(0);
-    }
-
-    .modal a {
-      font-size: 1.7rem;
-      color: #000;
+    .menu a {
+      color: var(--text-color);
       text-decoration: none;
-      margin: 10px 0;
-      font-weight: bold;
-      width: 100%;
-      
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      opacity: 0.8;
+      transition: var(--transition);
     }
+
+    .menu a:hover {
+      opacity: 1;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+    .menu a.active::after {
+  width: 100%;
+}
 
     .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 50px;
-      background: linear-gradient(to right, #00AEEF, #00AEEF);
-      min-height: calc(100vh - 90px);
+      padding: 8rem 5% 5rem;
+      gap: 2rem;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
     }
 
     .text-section {
-      color: white;
+      flex: 1;
       max-width: 600px;
+      position: relative;
+      z-index: 2;
     }
 
     .text-section h1 {
       font-size: 3.5rem;
-      margin: 0;
+      color: var(--text-color);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      font-weight: 800;
     }
 
     .text-section p {
       font-size: 1.2rem;
-      margin-top: 10px;
+      color: var(--light-purple);
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
     .download-buttons {
-      margin-top: 20px;
       display: flex;
-      gap: 10px;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .download-buttons a img {
-      width: 160px;
-      height: 50px;
+    .download-buttons a {
+      transition: var(--transition);
+    }
+
+    .download-buttons a:hover {
+      transform: translateY(-5px);
+    }
+
+    .download-buttons img {
+      height: 48px;
       object-fit: contain;
     }
 
-    .app-preview {
-      width: 55%;
-      max-width: 800px;
-      margin-right: -120px;
+    /* Phone Mockup */
+    .phone-mockup {
+      flex: 1;
+      max-width: 400px;
+      position: relative;
+      z-index: 2;
     }
 
-    .app-preview img {
+    .phone-frame {
+      width: 300px;
+      height: 600px;
+      background: #1a1a1a;
+      border-radius: 40px;
+      padding: 15px;
+      position: relative;
+      margin: 0 auto;
+      box-shadow: 
+        0 50px 100px rgba(0,0,0,0.3),
+        inset 0 0 0 2px #3a3a3a;
+      overflow: hidden;
+    }
+
+    .phone-screen {
+      background: var(--primary-color);
       width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
     }
 
-    .qr-section {
+    .app-content {
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: white;
+      justify-content: center;
       padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 20px;
+      position: relative;
     }
 
-    .qr-section img {
+    .logo-wrapper {
+      width: 140px;
+      height: 140px;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .logo-glow {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--accent-color);
+      opacity: 0.6;
+      animation: glow 3s infinite alternate;
+    }
+
+    .logo-circle {
+      width: 140px;
+      height: 140px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      background: var(--secondary-color);
+      border: 4px solid var(--glow-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-text {
+      font-size: 80px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+    }
+
+    .app-brand-name {
+      font-size: 32px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+    }
+
+    .app-tagline {
+      font-size: 16px;
+      color: var(--light-purple);
+      letter-spacing: 2px;
+    }
+
+    .ripple {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+      animation: ripple 4s infinite;
+    }
+
+    .ripple:nth-child(2) {
+      animation-delay: 1s;
+    }
+
+    .ripple:nth-child(3) {
+      animation-delay: 2s;
+    }
+
+    .notch {
       width: 150px;
-      height: 150px;
+      height: 25px;
+      background: #1a1a1a;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      z-index: 3;
+    }
+
+    .power-button {
+      width: 3px;
+      height: 50px;
+      background: #2a2a2a;
+      position: absolute;
+      right: -3px;
+      top: 100px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+
+    .volume-button {
+      width: 3px;
+      height: 70px;
+      background: #2a2a2a;
+      position: absolute;
+      left: -3px;
+      top: 100px;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 0, 50, 0.98);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.modal.show {
+  transform: translateX(0);
+}
+
+
+    .modal a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .modal a:hover {
+      color: var(--accent-color);
     }
 
     .footer {
+      background: rgba(12, 0, 50, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
       text-align: center;
-      padding: 10px;
-      background-color: #fff;
-      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      border-top: 1px solid rgba(86, 67, 253, 0.2);
     }
 
     .footer a {
-      color: #00AEEF;
+      color: var(--light-purple);
       text-decoration: none;
-      margin: 0 10px;
-      font-size: 14px;
+      margin: 0 1rem;
+      transition: var(--transition);
     }
 
-    @media (max-width: 768px) {
+    .footer a:hover {
+      color: var(--text-color);
+    }
+
+    .footer p {
+      color: var(--light-purple);
+      margin-top: 1rem;
+    }
+
+    @keyframes glow {
+      0% { opacity: 0.4; }
+      100% { opacity: 0.8; }
+    }
+
+    @keyframes ripple {
+      0% { 
+        transform: scale(0.6);
+        opacity: 0.6;
+      }
+      50% { 
+        transform: scale(1.2);
+        opacity: 0.3;
+      }
+      100% { 
+        transform: scale(0.6);
+        opacity: 0.6;
+      }
+    }
+
+    @media (max-width: 968px) {
       .container {
-        flex-direction: column;
-        padding: 20px;
-      }
+  flex-direction: column;
+  text-align: left;
+  padding-top: 6rem;
+}
 
-      .text-section {
-        text-align: center;
-        margin-bottom: 30px;
-      }
+.text-section h1 {
+  font-size: 2rem;
+  text-align: left;
+}
 
-      .app-preview {
-        width: 90%;
-        max-width: 500px;
-        margin: 0 auto;
-      }
+.text-section p {
+  text-align: left;
+}
 
       .download-buttons {
         justify-content: center;
@@ -195,73 +436,228 @@
       .menu-icon {
         display: block;
       }
+
+      .phone-mockup {
+        margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 1rem;
+      }
+
       .logo {
-     
-      margin-left: 10px;
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .text-section h1 {
+        font-size: 2rem;
+      }
+
+      .phone-frame {
+        width: 280px;
+        height: 560px;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .download-buttons img {
+        height: 40px;
+      }
+
+      .logo-wrapper {
+        width: 120px;
+        height: 120px;
+      }
+
+      .logo-circle {
+        width: 120px;
+        height: 120px;
+      }
+
+      .logo-text {
+        font-size: 60px;
+      }
+
+      .app-brand-name {
+        font-size: 28px;
+      }
     }
-    }
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth Button Hover */
+.download-buttons a {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+.download-buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+ /* Preloader */
+ .preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
   </style>
 </head>
-<body>
+<body onload="fadeOutPreloader()">
+  <div class="preloader">
+    <div class="spinner"></div>
+  </div>
+
   <header class="navbar">
-    <div class="logo">Opaleka</div>
+    <div class="logo"><a href="index.html">Opaleka</a></div>
+
     <nav class="menu">
-      <a href="#">Service Provider</a>
-      <a href="#">Client</a>
-      <a href="#privacy">Privacy Policy</a>
-      <a href="#terms">Terms & Conditions</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="service.html">Service Provider</a>
+      <a href="client.html">Client</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="payment.html">Payment Terms</a>
+      <a href="terms.html">Terms & Conditions</a>
     </nav>
-    <div class="menu-icon" id="menuIcon">&#9776;</div>
+    
+    <div class="menu-icon" id="menuIcon">☰</div>
   </header>
 
   <div class="modal" id="modal">
-    <a href="#">Service Provider</a>
-    <a href="#">Client</a>
-    <a href="#privacy">Privacy Policy</a>
-    <a href="#terms">Terms & Conditions</a>
+    <a href="index.html" class="active">Home</a>
+    <a href="service.html">Service Provider</a>
+    <a href="client.html">Client</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="payment.html">Payment Terms</a>
+    <a href="terms.html">Terms & Conditions</a>
   </div>
 
   <div class="container">
     <div class="text-section">
-      <h1>Download Opaleka Today!</h1>
-      <p>Scan the QR code or use the buttons below to download the app and experience the convenience firsthand.</p>
+      <h1>Elevate Your Experience</h1>
+      <p>Download Opaleka today and unlock a world of seamless services at your fingertips. Join thousands of satisfied users who've made their daily lives easier with our app.</p>
 
       <div class="download-buttons">
-        <a href="https://play.google.com/store">
+        <a href="https://play.google.com/store" aria-label="Download on Google Play">
           <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
         </a>
-        <a href="https://www.apple.com/app-store/">
+        <a href="https://www.apple.com/app-store/" aria-label="Download on App Store">
           <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
         </a>
       </div>
-
-      <div class="qr-section">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://your-app-download-link.com" alt="QR Code">
-        <p>Scan to download</p>
-      </div>
     </div>
 
-    <div class="app-preview">
-      <img src="preview1.png" alt="App Preview">
+    <div class="phone-mockup">
+      <div class="phone-frame">
+        <div class="notch"></div>
+        <div class="power-button"></div>
+        <div class="volume-button"></div>
+        <div class="phone-screen">
+          <div class="app-content">
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="ripple"></div>
+            <div class="logo-wrapper">
+              <div class="logo-glow"></div>
+              <div class="logo-circle">
+                <div class="logo-text">O</div>
+              </div>
+            </div>
+            <div class="app-brand-name">OPALEKA</div>
+         
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <footer class="footer">
-    <a id="privacy" href="#">Privacy Policy</a>
-    <a id="terms" href="#">Terms & Conditions</a>
-    <p>&copy; 2024 Opaleka. All rights reserved.</p>
-  </footer>
+    <p>&copy; 2025 Opaleka. All rights reserved.</p>
+    <p>For any inquiries regarding our Cookies Policy, please contact us at 
+        <a href="mailto:info@opaleka.com" style="color: var(--light-purple); text-decoration: underline;">info@opaleka.com</a>
+    </p>
+</footer>
 
   <script>
     const menuIcon = document.getElementById('menuIcon');
     const modal = document.getElementById('modal');
     let isOpen = false;
-
     menuIcon.addEventListener('click', () => {
-      isOpen = !isOpen;
-      modal.classList.toggle('show');
-      menuIcon.innerHTML = isOpen ? '&times;' : '&#9776;';
+  isOpen = !isOpen;
+  modal.classList.toggle('show');
+  menuIcon.innerHTML = isOpen ? '×' : '☰';
+});
+
+// Close modal when clicking a link
+document.querySelectorAll('.modal a').forEach(link => {
+  link.addEventListener('click', () => {
+    modal.classList.remove('show');
+    menuIcon.innerHTML = '☰';
+    isOpen = false;
+  });
+});
+
+
+    // Optional: Add smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
     });
   </script>
+  <script>
+    function fadeOutPreloader() {
+      setTimeout(() => {
+        document.querySelector('.preloader').classList.add('fade-out');
+      }, 1000); // Delay for 1 second
+    }
+  </script>
+  
 </body>
 </html>

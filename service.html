@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+   <!-- Favicon for Browsers -->
+<link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+<link rel="shortcut icon" href="./icons/favicon.ico">
+
+<!-- For Different Devices -->
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="site.webmanifest">
+<title>Opaleka - Grow Your Business as a Trusted Service Provider in Namibia</title>
+<meta name="description" content="Join Opaleka and connect with clients looking for trusted service providers in Namibia. Grow your business with smart bookings, secure payments, and increased visibility.">
+<meta name="keywords" content="service provider Namibia, home services Namibia, booking services online, professional services Namibia, trusted providers Namibia">
+
+  <style>
+    :root {
+      --primary-color: #0C0032;
+      --secondary-color: #190061;
+      --accent-color: #5643fd;
+      --glow-color: #7d67ff;
+      --light-purple: #a68eff;
+      --text-color: #fff;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary-color);
+      min-height: 100vh;
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: rgba(12, 0, 50, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(86, 67, 253, 0.2);
+    }
+
+    .logo {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-style: italic;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+.logo a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+    .menu {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .menu a:hover {
+      opacity: 1;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+    .menu a.active::after {
+  width: 100%;
+}
+    .container {
+      padding: 8rem 5% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      min-height: 60vh;
+      margin-bottom: 4rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--light-purple);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-image {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 0;
+    }
+
+    .feature-card {
+      background: rgba(25, 0, 97, 0.5);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(86, 67, 253, 0.2);
+      transition: var(--transition);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background: rgba(25, 0, 97, 0.8);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+
+    .feature-card p {
+      color: var(--light-purple);
+      line-height: 1.6;
+    }
+
+    .steps-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .steps-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--text-color);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .step-card {
+      background: rgba(25, 0, 97, 0.5);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid rgba(86, 67, 253, 0.2);
+      position: relative;
+    }
+
+    .step-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .step-card h3 {
+      margin: 1rem 0;
+      color: var(--text-color);
+    }
+
+    .step-card p {
+      color: var(--light-purple);
+      line-height: 1.6;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+      border-radius: 20px;
+      margin: 2rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .download-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .download-buttons a {
+      transition: var(--transition);
+    }
+
+    .download-buttons a:hover {
+      transform: translateY(-5px);
+    }
+
+    .download-buttons img {
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .footer {
+      background: rgba(12, 0, 50, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(86, 67, 253, 0.2);
+    }
+
+    .footer a {
+      color: var(--light-purple);
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--text-color);
+    }
+
+    .footer p {
+      color: var(--light-purple);
+      margin-top: 1rem;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(12, 0, 50, 0.98);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      transform: translateX(100%);
+      transition: var(--transition);
+      z-index: 999;
+    }
+
+    .modal.show {
+      transform: translateX(0);
+    }
+
+    .modal a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .modal a:hover {
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 968px) {
+      .hero-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.hero-content p {
+  text-align: left;
+}
+
+
+      .menu {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .download-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .container {
+        padding: 5rem 1rem 2rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+     /* Preloader */
+  .preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+  </style>
+</head>
+<body onload="fadeOutPreloader()">
+  <div class="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <header class="navbar">
+    <div class="logo"><a href="index.html">Opaleka</a></div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="service.html" class="active">Service Provider</a>
+      <a href="client.html">Client</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="payment.html">Payment Terms</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </nav>
+    <div class="menu-icon" id="menuIcon">☰</div>
+  </header>
+
+  <div class="modal" id="modal">
+    <a href="index.html">Home</a>
+    <a href="service.html" class="active">Service Provider</a>
+    <a href="client.html">Client</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="payment.html">Payment Terms</a>
+    <a href="terms.html">Terms & Conditions</a>
+  </div>
+
+  <div class="container">
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1>Become a Verified Service Provider in Namibia</h1>
+        <p>Join Opaleka's network of professional service providers and connect with customers looking for your expertise. Transform your passion into a thriving business with our cutting-edge platform.</p>
+        <div class="download-buttons">
+          <a href="https://play.google.com/store" aria-label="Download on Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+          </a>
+          <a href="https://www.apple.com/app-store/" aria-label="Download on App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://th.bing.com/th/id/R.26e77c361f071e27cd03afea615ac885?rik=pndq3TYXMtCjIQ&riu=http%3a%2f%2fstre-nom.us%2fimages%2fbg-55.jpg&ehk=qWcaJdpLXkYN9axV9Y6XcMxKgsN8FLIhu7V0wKVc1DE%3d&risl=&pid=ImgRaw&r=0" alt="Opaleka dashboard for service providers in Namibia">
+
+      </div>
+    </section>
+
+    <section class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3>Business Growth</h3>
+        <p>Expand your client base and increase your visibility in the local market through our platform's smart matching system.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <h3>Smart Scheduling</h3>
+        <p>Manage your appointments efficiently with our intelligent booking system that syncs with your calendar.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💳</div>
+        <h3>Secure Payments</h3>
+        <p>Receive payments safely and quickly through our integrated payment system with detailed transaction history.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>Build Reputation</h3>
+        <p>Showcase your expertise through verified reviews and ratings from satisfied customers.</p>
+      </div>
+    </section>
+
+    <section class="steps-section">
+      <h2>Get Started in 4 Easy Steps</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Download</h3>
+          <p>Get the Opaleka app from your preferred app store</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Register</h3>
+          <p>Complete your profile with your professional details</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Set Up</h3>
+          <p>Add your services and customize your availability</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Start</h3>
+          <p>Begin accepting bookings and grow your business</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>Start Accepting More Bookings in Namibia</h2>
+      <p>Register on Opaleka today and connect with customers looking for reliable services across Namibia.</p>
+      <div class="download-buttons">
+        <a href="https://play.google.com/store" aria-label="Download on Google Play">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+        </a>
+        <a href="https://www.apple.com/app-store/" aria-label="Download on App Store">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Opaleka. All rights reserved.</p>
+    <p>For any inquiries regarding our Cookies Policy, please contact us at 
+        <a href="mailto:info@opaleka.com" style="color: var(--light-purple); text-decoration: underline;">info@opaleka.com</a>
+    </p>
+</footer>
+
+
+  <script>
+    const menuIcon = document.getElementById('menuIcon');
+    const modal = document.getElementById('modal');
+    let isOpen = false;
+
+    menuIcon.addEventListener('click', () => {
+      isOpen = !isOpen;
+      modal.classList.toggle('show');
+      menuIcon.innerHTML = isOpen ? '×' : '☰';
+    });
+
+    // Close modal when clicking links
+    document.querySelectorAll('.modal a').forEach(link => {
+      link.addEventListener('click', () => {
+        modal.classList.remove('show');
+        menuIcon.innerHTML = '☰';
+        isOpen = false;
+      });
+    });
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Optional: Add scroll animation for feature cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe feature cards for scroll animation
+    document.querySelectorAll('.feature-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+
+    // Observe step cards for scroll animation
+    document.querySelectorAll('.step-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(card);
+    });
+  </script>
+  <script>
+    function fadeOutPreloader() {
+      setTimeout(() => {
+        document.querySelector('.preloader').classList.add('fade-out');
+      }, 1000); // Delay for 1 second
+    }
+  </script>
+  
+</body>
+</html>

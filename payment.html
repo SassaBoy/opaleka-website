@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Favicon for Browsers -->
+<link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+<link rel="shortcut icon" href="./icons/favicon.ico">
+
+<!-- For Different Devices -->
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="site.webmanifest">
+
+    
+    <title>Opaleka Payment Terms | Secure Transactions</title>
+    <meta name="description" content="Review Opaleka’s payment terms to understand how transactions, refunds, and payment methods are handled securely.">
+    <meta name="keywords" content="payment terms, Opaleka payments, secure transactions, refunds, billing policies">
+
+    <style>
+        :root {
+            --primary-color: #0C0032;
+            --secondary-color: #190061;
+            --accent-color: #5643fd;
+            --light-purple: #a68eff;
+            --text-color: #fff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--primary-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(12, 0, 50, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(86, 67, 253, 0.2);
+        }
+        .logo {
+    font-size: 2rem;
+    color: var(--text-color);
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-style: italic;
+    position: relative;
+}
+
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+.logo a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+       
+@media (max-width: 768px) {
+    .menu {
+        display: none !important; /* Ensures the menu items are completely hidden */
+    }
+}
+
+
+        .container {
+            padding: 8rem 5% 5rem;
+            max-width: 1100px;
+            margin: auto;
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .content-section {
+            background: rgba(25, 0, 97, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer {
+            background: rgba(12, 0, 50, 0.95);
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(86, 67, 253, 0.2);
+        }
+        .menu {
+    display: flex;
+    gap: 2rem; /* Even more spacing */
+}
+
+        .menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.menu a:hover {
+    opacity: 1;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+    width: 100%;
+}
+
+  .preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+    </style>
+</head>
+<body onload="fadeOutPreloader()">
+    <div class="preloader">
+      <div class="spinner"></div>
+    </div>
+    <header class="navbar">
+        <div class="logo"><a href="index.html">Opaleka</a></div>
+        <nav class="menu">
+            <a href="index.html">Home</a>
+            <a href="service.html">Service Provider</a>
+            <a href="client.html">Client</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="payment.html" class="active">Payment Terms</a>
+            <a href="terms.html">Terms & Conditions</a>
+        </nav>
+        
+    </header>
+
+    <div class="container">
+        <div class="hero-content">
+            <h1>Opaleka Payment Terms</h1>
+            <p><strong>Effective Date:</strong> February 2025 | <strong>Secure & Transparent Transactions</strong></p>
+        </div>
+
+        <section class="content-section">
+            <h2>Accepted Payment Methods</h2>
+            <p>Opaleka supports secure transactions using the following payment methods:</p>
+            <ul>
+                <li>Credit & Debit Cards (Visa, MasterCard, Amex)</li>
+                <li>Mobile Money (E-wallets, PayGate)</li>
+                <li>Bank Transfers & EFT</li>
+                <li>Secure Payment Gateway (DPO Group)</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Subscription & Billing</h2>
+            <p>Service providers are required to subscribe to our platform using a 30-day subscription plan.</p>
+            <ul>
+                <li>30-Day Subscription: NAD 200</li>
+            </ul>
+            <p>All subscriptions are non-refundable. Auto-renewal is enabled unless manually canceled before the renewal date.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Refund & Cancellation Policy</h2>
+            <p>Payments for completed transactions are final. Refunds may only be issued under the following conditions:</p>
+            <ul>
+                <li>Unauthorized transaction or duplicate charge.</li>
+                <li>Service not rendered due to system failure or verified provider non-compliance.</li>
+            </ul>
+            <p>Refund requests must be submitted within 7 days of the transaction date.</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Opaleka. All rights reserved.</p>
+        <p>For any inquiries regarding payments, please contact us at 
+            <a href="mailto:payments@opaleka.com" style="color: var(--light-purple); text-decoration: underline;">payments@opaleka.com</a>
+        </p>
+    </footer>
+    <script>
+        function fadeOutPreloader() {
+          setTimeout(() => {
+            document.querySelector('.preloader').classList.add('fade-out');
+          }, 1000); // Delay for 1 second
+        }
+      </script>
+</body>
+</html>
