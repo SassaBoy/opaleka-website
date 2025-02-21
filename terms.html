@@ -290,6 +290,45 @@
             opacity: 0;
             visibility: hidden;
         }
+
+        .dropdown {
+    position: relative;
+    display: flex;
+    align-items: center; /* Aligns the dropdown title with the other menu items */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: rgba(25, 0, 97, 0.95);
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(86, 67, 253, 0.2);
+}
+
     </style>
 </head>
 <body onload="fadeOutPreloader()">
@@ -300,12 +339,20 @@
         <div class="logo"><a href="index.html">Opaleka</a></div>
         <nav class="menu">
             <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <div class="dropdown" >
+              <a href="#" class="dropbtn" class="active">Privacy & Terms</a>
+              <div class="dropdown-content">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="payment.html">Payment Terms</a>
+                <a href="terms.html"  class="active">Terms & Conditions</a>
+              </div>
+            </div>
             <a href="service.html">Service Provider</a>
             <a href="client.html">Client</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="payment.html">Payment Terms</a>
-            <a href="terms.html" class="active">Terms & Conditions</a>
-        </nav>
+         
+          </nav>
     </header>
 
     <div class="container">
@@ -313,61 +360,135 @@
             <h1>Terms & Conditions</h1>
             <p><strong>Effective Date:</strong> February 2025 | <strong>Clear & Transparent Guidelines</strong></p>
         </div>
-
+    
         <section class="content-section">
-            <h2>Service Agreement</h2>
-            <p>By using Opaleka's platform, you agree to comply with our terms:</p>
-            <ul>
-                <li>Complete registration with accurate information</li>
-                <li>Maintain account security and confidentiality</li>
-                <li>Use services in accordance with local laws</li>
-                <li>Accept responsibility for all account activities</li>
-            </ul>
+            <h2>1. Agreement to Terms</h2>
+            <p>By accessing or using Opaleka’s platform, you confirm that you have read, understood, and agreed to these Terms & Conditions. If you do not agree with any part of these terms, you must refrain from using the platform.</p>
             <div class="important-note">
-                <p><strong>Legal Notice:</strong> These terms form a binding agreement. Using our services indicates acceptance of all terms and conditions.</p>
+                <p><strong>Legal Notice:</strong> These Terms constitute a binding agreement between you and Opaleka. Continued use of our platform implies full acceptance of these terms.</p>
             </div>
         </section>
-
+    
         <section class="content-section">
-            <h2>Service Provider Requirements</h2>
-            <p>Service providers must maintain professional standards:</p>
+            <h2>2. User Registration & Account Security</h2>
+            <p>To access certain features of our platform, you must create an account. By registering, you agree to:</p>
             <ul>
-                <li>Valid professional certifications and licenses</li>
-                <li>Timely response to client requests (within 24 hours)</li>
-                <li>Accurate service descriptions and pricing</li>
-                <li>Compliance with local regulations and safety standards</li>
-                <li>Professional conduct and service quality</li>
+                <li>Provide accurate and up-to-date personal and business information.</li>
+                <li>Maintain the confidentiality of your account credentials.</li>
+                <li>Be responsible for all activities conducted under your account.</li>
+                <li>Notify Opaleka immediately of any unauthorized access or security breaches.</li>
             </ul>
             <div class="important-note">
-                <p><strong>Quality Assurance:</strong> Regular performance reviews ensure maintenance of service standards. Non-compliance may result in account suspension.</p>
+                <p><strong>Account Security:</strong> You are solely responsible for maintaining the security of your login credentials. Opaleka will not be liable for losses due to unauthorized account access.</p>
             </div>
         </section>
-
+    
         <section class="content-section">
-            <h2>User Conduct & Responsibilities</h2>
+            <h2>3. Service Provider Obligations</h2>
+            <p>Service providers using the Opaleka platform must adhere to the following standards:</p>
             <ul>
-                <li>Respectful communication with all platform users</li>
-                <li>Honest feedback and accurate service reviews</li>
-                <li>Protection of personal and account information</li>
-                <li>Compliance with booking and cancellation policies</li>
-                <li>Proper use of platform features and services</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Platform Policies & Protection</h2>
-            <ul>
-                <li>Zero tolerance for fraudulent activities</li>
-                <li>Regular security updates and monitoring</li>
-                <li>Data protection and privacy compliance</li>
-                <li>Dispute resolution procedures</li>
-                <li>Service quality monitoring and feedback systems</li>
+                <li>Maintain valid business registrations, licenses, and permits as required by law.</li>
+                <li>Provide accurate service descriptions, pricing, and availability.</li>
+                <li>Respond to customer inquiries within 24 hours.</li>
+                <li>Uphold high service quality and professional behavior.</li>
+                <li>Comply with all applicable regulations, safety protocols, and customer protection laws.</li>
             </ul>
             <div class="important-note">
-                <p><strong>Safety Advisory:</strong> Report suspicious activities immediately. Opaleka maintains strict security protocols to protect all users.</p>
+                <p><strong>Enforcement Policy:</strong> Failure to meet these requirements may result in account suspension or removal from the platform.</p>
             </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>4. User Responsibilities & Code of Conduct</h2>
+            <p>All users of the platform are expected to maintain ethical and respectful interactions. You agree to:</p>
+            <ul>
+                <li>Engage in honest and respectful communication with service providers and clients.</li>
+                <li>Provide truthful feedback and reviews regarding services.</li>
+                <li>Respect privacy and confidentiality of other users.</li>
+                <li>Adhere to cancellation and refund policies where applicable.</li>
+                <li>Use platform features as intended, avoiding fraudulent or deceptive activities.</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Community Standards:</strong> Violations of these policies may lead to warnings, account suspension, or permanent removal from the platform.</p>
+            </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>5. Payments, Fees & Refunds</h2>
+            <p>Transactions on Opaleka are governed by the following terms:</p>
+            <ul>
+                <li>All service fees are transparently stated before confirming a booking.</li>
+                <li>Users must complete payment for booked services as per the agreed terms.</li>
+                <li>Refunds will be processed according to Opaleka’s refund policy, available on request.</li>
+                <li>Opaleka does not handle direct financial transactions but facilitates secure payment processing through third-party providers.</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Transaction Security:</strong> Payment disputes must be reported immediately. Fraudulent transactions may result in legal action.</p>
+            </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>6. Prohibited Activities</h2>
+            <p>Users are strictly prohibited from engaging in the following activities:</p>
+            <ul>
+                <li>Providing false or misleading information.</li>
+                <li>Engaging in discriminatory, offensive, or illegal behavior.</li>
+                <li>Attempting to bypass the platform's payment system.</li>
+                <li>Misusing customer data or violating privacy laws.</li>
+                <li>Using the platform for commercial purposes without prior authorization.</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Enforcement:</strong> Violations of these rules will result in immediate account suspension and may lead to legal consequences.</p>
+            </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>7. Dispute Resolution & Liability</h2>
+            <p>In case of disputes between users:</p>
+            <ul>
+                <li>Opaleka will facilitate mediation but is not liable for user disputes.</li>
+                <li>Users must attempt to resolve disputes amicably before seeking legal action.</li>
+                <li>Opaleka is not responsible for service failures, delays, or breaches by third parties.</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Disclaimer:</strong> Opaleka acts solely as a facilitation platform and does not assume liability for user disputes or service provider misconduct.</p>
+            </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>8. Data Protection & Privacy Policy</h2>
+            <p>Opaleka is committed to safeguarding your personal data:</p>
+            <ul>
+                <li>All data collection and processing are governed by our Privacy Policy.</li>
+                <li>We do not sell or share user data with third parties without consent.</li>
+                <li>Users have the right to access, modify, or delete their data upon request.</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Privacy Protection:</strong> For details on how we handle your data, refer to our <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>9. Termination & Suspension</h2>
+            <p>Opaleka reserves the right to suspend or terminate accounts under the following conditions:</p>
+            <ul>
+                <li>Violation of these Terms & Conditions.</li>
+                <li>Fraudulent, abusive, or harmful activities.</li>
+                <li>Legal requirements or regulatory compliance issues.</li>
+            </ul>
+            <div class="important-note">
+                <p><strong>Account Review:</strong> Users may appeal terminations by contacting support with relevant details.</p>
+            </div>
+        </section>
+    
+        <section class="content-section">
+            <h2>10. Governing Law & Legal Notices</h2>
+            <p>These Terms & Conditions are governed by the laws of Namibia. Any legal disputes shall be subject to the jurisdiction of the High Court of Namibia.</p>
+            <p>For legal inquiries or complaints, contact:</p>
+            <p><strong>Email:</strong> <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
         </section>
     </div>
+    
 
     <footer class="footer">
         <p>&copy; 2025 Opaleka. All rights reserved.</p>

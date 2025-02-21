@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+  <link rel="shortcut icon" href="./icons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <title>Pricing - Opaleka</title>
+  <meta name="description" content="Explore Opaleka's affordable pricing plans for service providers in Namibia.">
+
+  <style>
+    :root {
+      --primary-color: #0C0032;
+      --secondary-color: #190061;
+      --accent-color: #5643fd;
+      --glow-color: #7d67ff;
+      --light-purple: #a68eff;
+      --text-color: #fff;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: rgba(12, 0, 50, 0.95);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(86, 67, 253, 0.2);
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: var(--text-color);
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-color), transparent);
+    }
+
+    .logo a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .menu a:hover {
+      opacity: 1;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .menu a:hover::after, 
+    .menu a.active::after {
+      width: 100%;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(25, 0, 97, 0.95);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 0.5rem 0;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      padding: 0.75rem 1rem;
+      display: block;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgba(86, 67, 253, 0.2);
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+
+    .pricing-container {
+      padding: 120px 5% 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .pricing-hero {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: rgba(25, 0, 97, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .pricing-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, var(--accent-color), var(--light-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .pricing-card {
+      background: rgba(25, 0, 97, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(86, 67, 253, 0.2);
+      transition: var(--transition);
+      max-width: 500px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, rgba(86, 67, 253, 0.2), rgba(125, 103, 255, 0.2));
+      border-color: var(--accent-color);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(86, 67, 253, 0.2);
+    }
+
+    .price-tag {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      margin: 20px 0;
+    }
+
+    .price-period {
+      font-size: 1rem;
+      color: var(--light-purple);
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    .features-list li {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      color: var(--light-purple);
+    }
+
+    .features-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-color);
+      font-weight: bold;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: linear-gradient(45deg, var(--accent-color), var(--glow-color));
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+
+    .footer {
+            background: rgba(12, 0, 50, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer a {
+            color: var(--light-purple);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-support {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(86, 67, 253, 0.1);
+            border-radius: 8px;
+        }
+
+        .social-media {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-media h3 {
+            margin-bottom: 1rem;
+            color: var(--light-purple);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            opacity: 0.8;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+    @media (max-width: 768px) {
+      .menu {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+
+    .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top: 5px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+  </style>
+</head>
+<body onload="fadeOutPreloader()">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+  <header class="navbar">
+    <div class="logo"><a href="index.html">Opaleka</a></div>
+
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="pricing.html" class="active">Pricing</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Privacy & Terms</a>
+        <div class="dropdown-content">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="payment.html">Payment Terms</a>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+      <a href="service.html">Service Provider</a>
+      <a href="client.html">Client</a>
+   
+    </nav>
+  </header>
+
+  <main class="pricing-container">
+    <section class="pricing-hero">
+      <h1>Simple, Transparent Pricing</h1>
+      <p>Affordable solutions for service providers across Namibia</p>
+    </section>
+
+    <section class="pricing-card">
+      <h2>Professional Plan</h2>
+      <div class="price-tag">NAD 200<span class="price-period">/month</span></div>
+      <ul class="features-list">
+        <li>Premium visibility on the Opaleka platform</li>
+        <li>Unlimited service listings</li>
+        <li>Priority placement in search results</li>
+        <li>24/7 customer support</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Opaleka. All rights reserved.</p>
+    <div class="contact-support">
+        <p>For payment-related inquiries:</p>
+        <p>Email: <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
+        <p>Support Hours: Monday - Friday, 8:00 AM - 5:00 PM (Namibia Time, GMT+2)</p>
+        <p>Emergency Support: Available 24/7 for urgent payment issues</p>
+    </div>
+    <div class="social-media">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/opaleka/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61567409875373" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/opaleka.namibia/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+<script>
+    function fadeOutPreloader() {
+        setTimeout(() => {
+            document.querySelector('.preloader').classList.add('fade-out');
+        }, 1000);
+    }
+</script>
+</body>
+</html>

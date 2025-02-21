@@ -320,38 +320,89 @@
     }
 
     .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(12, 0, 50, 0.98);
-      backdrop-filter: blur(10px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      transform: translateX(100%);
-      transition: var(--transition);
-      z-index: 999;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+}
 
-    .modal.show {
-      transform: translateX(0);
-    }
+.modal.show {
+    transform: translateX(0);
+}
 
-    .modal a {
-      color: var(--text-color);
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 600;
-      transition: var(--transition);
-    }
+.modal a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
 
-    .modal a:hover {
-      color: var(--accent-color);
+.modal a:hover, 
+.modal a.active {
+    background-color: var(--accent-color);
+}
+
+.mobile-dropdown {
+    width: 100%;
+}
+
+.mobile-dropdown-btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mobile-dropdown-btn:hover {
+    background-color: rgba(86, 67, 253, 0.2);
+}
+.mobile-dropdown-content {
+    display: none;
+    background-color: rgba(25, 0, 97, 0.95); /* Matches dropdown style */
+    width: 100%;
+    padding: 0.5rem 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.mobile-dropdown-content.show {
+    display: block;
+}
+
+.mobile-dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.mobile-dropdown-content a:hover {
+    background-color: rgba(86, 67, 253, 0.2);
+}
+
+
+@media (max-width: 968px) {
+    .dropdown-content {
+        display: none !important;
     }
+}
 
     @media (max-width: 968px) {
       .hero-section {
@@ -400,6 +451,45 @@
         font-size: 2rem;
       }
     }
+
+    .dropdown {
+    position: relative;
+    display: flex;
+    align-items: center; /* Aligns the dropdown title with the other menu items */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: rgba(25, 0, 97, 0.95);
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(86, 67, 253, 0.2);
+}
+
      /* Preloader */
   .preloader {
     position: fixed;
@@ -476,27 +566,49 @@
     <div class="spinner"></div>
   </div>
 
+  
   <header class="navbar">
     <div class="logo"><a href="index.html">Opaleka</a></div>
+
     <nav class="menu">
       <a href="index.html">Home</a>
-      <a href="service.html" class="active">Service Provider</a>
+      <a href="about.html" >About</a>
+      <a href="pricing.html">Pricing</a>
+      <div class="dropdown">
+        <a href="#" class="dropbtn">Privacy & Terms</a>
+        <div class="dropdown-content">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="payment.html">Payment Terms</a>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+      <a href="service.html"  class="active">Service Provider</a>
       <a href="client.html">Client</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="payment.html">Payment Terms</a>
-      <a href="terms.html">Terms & Conditions</a>
+   
     </nav>
     <div class="menu-icon" id="menuIcon">☰</div>
   </header>
 
-  <div class="modal" id="modal">
-    <a href="index.html">Home</a>
-    <a href="service.html" class="active">Service Provider</a>
-    <a href="client.html">Client</a>
+ <!-- Replace your current modal HTML with this -->
+<div class="modal" id="modal">
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About</a>
+  <a href="pricing.html">Pricing</a>
+  
+  <!-- Simplified dropdown structure -->
+  <button class="mobile-dropdown-btn" onclick="toggleMobileDropdown(event)">
+    Privacy & Terms ▼
+</button>
+<div class="mobile-dropdown-content" id="mobileDropdownContent" style="display: none;">
     <a href="privacy.html">Privacy Policy</a>
     <a href="payment.html">Payment Terms</a>
     <a href="terms.html">Terms & Conditions</a>
-  </div>
+</div>
+
+  
+  <a href="service.html">Service Provider</a>
+  <a href="client.html">Client</a>
+</div>
 
   <div class="container">
     <section class="hero-section">
@@ -676,6 +788,16 @@
         document.querySelector('.preloader').classList.add('fade-out');
       }, 1000); // Delay for 1 second
     }
+
+        function toggleMobileDropdown(event) {
+    event.preventDefault();
+    const dropdownContent = document.getElementById('mobileDropdownContent');
+    if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+        dropdownContent.style.display = "block";
+    } else {
+        dropdownContent.style.display = "none";
+    }
+}
   </script>
   
 </body>

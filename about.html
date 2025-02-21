@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <link rel="icon" type="image/x-icon" href="./icons/favicon.ico">
+  <link rel="shortcut icon" href="./icons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <title>About Us - Opaleka</title>
+  <meta name="description" content="Learn about Opaleka's mission to transform Namibia through innovative technology and service delivery solutions.">
+
+  <style>
+    :root {
+      --primary-color: #0C0032;
+      --secondary-color: #190061;
+      --accent-color: #5643fd;
+      --glow-color: #7d67ff;
+      --light-purple: #a68eff;
+      --text-color: #fff;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--primary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: rgba(12, 0, 50, 0.95);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: var(--text-color);
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-color), transparent);
+    }
+
+    .logo a {
+      color: var(--text-color);
+      text-decoration: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .menu a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      opacity: 0.8;
+      transition: var(--transition);
+    }
+
+    .menu a:hover {
+      opacity: 1;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-color);
+      transition: var(--transition);
+    }
+
+    .menu a:hover::after, 
+    .menu a.active::after {
+      width: 100%;
+    }
+    
+    .about-container {
+      padding: 120px 5% 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-hero {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: rgba(25, 0, 97, 0.3);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, var(--accent-color), var(--light-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--light-purple);
+      text-align: left;
+    }
+
+    .about-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .about-card {
+  background: rgba(25, 0, 97, 0.3);
+  padding: 30px;
+  border-radius: 15px;
+  transition: var(--transition);
+  border: 1px solid rgba(86, 67, 253, 0.1);
+  text-align: left; /* Aligns all text inside to the left */
+}
+
+.about-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--accent-color);
+  text-align: left; /* Ensures heading is aligned left */
+}
+
+.about-card p {
+  color: var(--light-purple);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left; /* Ensures paragraph text is also aligned left */
+}
+
+
+    .story-section {
+      background: rgba(25, 0, 97, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 60px;
+      border: 1px solid rgba(86, 67, 253, 0.1);
+    }
+
+    .story-section h2 {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .story-section p {
+      color: var(--light-purple);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .vision-section {
+      background: rgba(25, 0, 97, 0.3);
+      padding: 40px;
+      border-radius: 20px;
+      margin-bottom: 60px;
+      border: 1px solid rgba(86, 67, 253, 0.1);
+    }
+
+    .vision-section h2 {
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .vision-section p {
+      color: var(--light-purple);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+    .footer {
+      background: rgba(12, 0, 50, 0.95);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--accent-color);
+    }
+
+    .footer a {
+      color: var(--light-purple);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--accent-color);
+    }
+
+    .contact-support {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(86, 67, 253, 0.1);
+      border-radius: 8px;
+    }
+
+    .social-media {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-top: 1px solid var(--accent-color);
+    }
+
+    .social-media h3 {
+      margin-bottom: 1rem;
+      color: var(--light-purple);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: var(--transition);
+      opacity: 0.8;
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(25, 0, 97, 0.95);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 0.5rem 0;
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      padding: 0.75rem 1rem;
+      display: block;
+      text-decoration: none;
+      color: var(--text-color);
+      transition: var(--transition);
+    }
+
+    .dropdown-content a:hover {
+      background-color: rgba(86, 67, 253, 0.2);
+    }
+
+    .preloader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-top: 5px solid var(--accent-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .preloader.fade-out {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    @media (max-width: 968px) {
+      .menu {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body onload="fadeOutPreloader()">
+    <div class="preloader">
+        <div class="spinner"></div>
+    </div>
+
+  <header class="navbar">
+    <div class="logo"><a href="index.html">Opaleka</a></div>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="pricing.html">Pricing</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Privacy & Terms</a>
+          <div class="dropdown-content">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="payment.html">Payment Terms</a>
+            <a href="terms.html">Terms & Conditions</a>
+          </div>
+        </div>
+        <a href="service.html">Service Provider</a>
+        <a href="client.html">Client</a>
+    </nav>
+  </header>
+
+  <main class="about-container">
+    <section class="about-hero">
+        <h1>About Opaleka</h1>
+        <p>Opaleka is more than just an app—it’s the start of something bigger. The name **Opaleka**, which means “to clean” in Oshiwambo, originally began as an idea for a **cleaning services platform**. But it quickly evolved into something much greater: a way to clean up **the disconnect between service providers and clients in Namibia**, creating opportunities, jobs, and a better future for all.</p>
+        <p>With Opaleka, anyone can **find and book trusted professionals**, and service providers can **grow their businesses** by connecting with clients effortlessly. This is just the beginning—the long-term vision is to expand Opaleka into a group of companies that drive innovation, employment, and transformation in Namibia.</p>
+    </section>
+    
+
+    <section class="story-section">
+        <h2>Our Story</h2>
+        <p>Opaleka started from a casual conversation that turned into something much bigger. In 2023, founder <strong>Deon Gewers</strong> was talking to a friend about opening a cleaning services company. That friend, whose name cannot be disclosed, had a simple but game-changing suggestion: <em>"Why not just build an app instead?"</em> The idea was to make it easier for people to book cleaning services through a mobile platform.</p>
+    
+        <p>But then Deon had a realization—why stop at just cleaning services? Namibia needed something bigger. What if there was a platform where anyone could find and book **any** service provider, whether it’s an electrician, a mechanic, a tutor, or a photographer? That’s when Opaleka evolved beyond just cleaning services. The name took on a new meaning: not about sweeping floors, but about **cleaning up the system**—creating job opportunities, improving service accessibility, and making Namibia a better place through technology.</p>
+    
+        <p>The vision doesn’t stop with the app. Opaleka is just the beginning. The long-term goal is to build the <strong>Opaleka Group of Companies</strong>—a network of businesses, all working towards one mission: **transforming Namibia**. From tech solutions to job creation, Opaleka is here to open doors, connect people, and shape the future. </p>
+    
+        <p>We’re not just another app. **We’re a movement.** And this is only the start.</p>
+    </section>
+    
+
+    <section class="about-section">
+        <div class="about-card">
+            <h3>Our Mission</h3>
+            <p>To **transform service delivery in Namibia** by creating a **seamless digital platform** where skilled professionals and clients connect effortlessly. Opaleka is not just a marketplace—it’s a movement toward **economic empowerment, technological growth, and accessible opportunities** for all Namibians.</p>
+        </div>
+    
+        <div class="about-card">
+            <h3>Our Vision</h3>
+            <p>To make **Opaleka the leading service platform in Namibia**, setting a new benchmark for **quality, reliability, and accessibility** in professional services. Our goal is to drive **digital transformation across all industries**, ensuring every Namibian has access to the services they need, when they need them.</p>
+        </div>
+    
+        <div class="about-card">
+            <h3>Our Values</h3>
+            <p>At the heart of Opaleka are **four core values**:</p>
+            <ul>
+                <li><strong>Trust:</strong> We build a **secure and reliable** platform where clients and service providers can engage with confidence.</li>
+                <li><strong>Excellence:</strong> We uphold the **highest standards** in service quality, ensuring users get the best experience.</li>
+                <li><strong>Innovation:</strong> We embrace **cutting-edge technology** to create smarter, more efficient solutions.</li>
+                <li><strong>Community:</strong> We are driven by a mission to **uplift and empower** Namibians through economic opportunities.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section class="vision-section">
+        <h2>The Future: Opaleka Group of Companies</h2>
+        <p>Opaleka started as a **service booking app**, but it was never meant to stop there. This is just the beginning.</p>
+        <p>Our long-term vision is to build the **Opaleka Group of Companies**, a powerhouse of businesses dedicated to **technology, innovation, and job creation** in Namibia. Each company within the group will tackle different challenges—from **digital solutions to job creation and economic development**—but all will share a single purpose: to **empower Namibians and transform industries**.</p>
+        <p>We are not just **building an app**; we are **building a future** where every Namibian has access to better services, more opportunities, and a stronger economy.</p>
+    </section>
+    
+
+  <footer class="footer">
+    <p>&copy; 2025 Opaleka. All rights reserved.</p>
+    <div class="contact-support">
+        <p>For privacy-related inquiries:</p>
+        <p>Email: <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
+        <p>Support Hours: Monday - Friday, 8:00 AM - 5:00 PM (Namibia Time, GMT+2)</p>
+        <p>Emergency Support: 24/7 for data breach reporting</p>
+    </div>
+    <div class="social-media">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/opaleka/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa<i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61567409875373" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/opaleka.namibia/" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuIcon = document.getElementById('menuIcon');
+    const menu = document.querySelector('.menu');
+
+    menuIcon.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('show');
+      });
+    });
+</script>
+
+<script>
+    function fadeOutPreloader() {
+        setTimeout(() => {
+            document.querySelector('.preloader').classList.add('fade-out');
+        }, 1000);
+    }
+</script>
+</body>
+</html>

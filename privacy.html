@@ -290,6 +290,178 @@
             opacity: 0;
             visibility: hidden;
         }
+
+        .dropdown {
+    position: relative;
+    display: flex;
+    align-items: center; /* Aligns the dropdown title with the other menu items */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: rgba(25, 0, 97, 0.95);
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 0.5rem 0;
+    z-index: 1000;
+    text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(86, 67, 253, 0.2);
+}
+/* General Table Styling */
+.data-protection-table,
+.privacy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: rgba(25, 0, 97, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Table Headers */
+.data-protection-table th,
+.privacy-table th {
+    background: var(--accent-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-align: left;
+}
+
+/* Table Rows */
+.data-protection-table td,
+.privacy-table td {
+    padding: 1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Alternating Row Colors */
+.data-protection-table tbody tr:nth-child(even),
+.privacy-table tbody tr:nth-child(even) {
+    background: rgba(86, 67, 253, 0.1);
+}
+
+/* Hover Effect */
+.data-protection-table tbody tr:hover,
+.privacy-table tbody tr:hover {
+    background: rgba(86, 67, 253, 0.2);
+    transition: var(--transition);
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .data-protection-table,
+    .privacy-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .data-protection-table th,
+    .privacy-table th,
+    .data-protection-table td,
+    .privacy-table td {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Improve text readability on mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 6rem 3% 4rem;
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+        text-align: center;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .content-section {
+        padding: 1.5rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-section p, 
+    .content-section li {
+        font-size: 0.95rem;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    /* Make tables scrollable */
+    .data-protection-table,
+    .privacy-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .data-protection-table th,
+    .privacy-table th,
+    .data-protection-table td,
+    .privacy-table td {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .social-links {
+        gap: 1rem;
+    }
+}
+
+/* Responsive Dropdown Menu */
+@media (max-width: 768px) {
+    .dropdown {
+        position: static;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        min-width: 180px;
+    }
+}
+
     </style>
 </head>
 <body onload="fadeOutPreloader()">
@@ -301,12 +473,20 @@
         <div class="logo"><a href="index.html">Opaleka</a></div>
         <nav class="menu">
             <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
+            <div class="dropdown" >
+              <a href="#" class="dropbtn" class="active">Privacy & Terms</a>
+              <div class="dropdown-content">
+                <a href="privacy.html" class="active">Privacy Policy</a>
+                <a href="payment.html">Payment Terms</a>
+                <a href="terms.html">Terms & Conditions</a>
+              </div>
+            </div>
             <a href="service.html">Service Provider</a>
             <a href="client.html">Client</a>
-            <a href="privacy.html" class="active">Privacy Policy</a>
-            <a href="payment.html">Payment Terms</a>
-            <a href="terms.html">Terms & Conditions</a>
-        </nav>
+         
+          </nav>
     </header>
 
     <div class="container">
@@ -317,56 +497,202 @@
 
         <section class="content-section">
             <h2>Data Collection & Usage</h2>
-            <p>We collect and process the following types of information:</p>
+            <p>Opaleka collects and processes certain information to provide a seamless and secure service experience. Below is an overview of the data we collect and how it is used:</p>
+        
+            <h3>1. Information You Provide</h3>
+            <p>When using our platform, you may be required to provide the following details:</p>
             <ul>
-                <li>Personal Information (name, email, contact details)</li>
-                <li>Service Provider Professional Details</li>
-                <li>Client Booking Information</li>
-                <li>Payment Transaction Data</li>
-                <li>Device and Usage Information</li>
+                <li><strong>Personal Information:</strong> Your name, email address, phone number, and profile details.</li>
+                <li><strong>Service Provider Information:</strong> Business name, address, service offerings, years of experience, and operating hours.</li>
+                <li><strong>Client Booking Information:</strong> Details of bookings made, service requests, and appointment history.</li>
+                <li><strong>Payment Details:</strong> Transaction records for services booked through our platform (Opaleka does not store credit/debit card details).</li>
             </ul>
+        
+            <h3>2. Information Collected Automatically</h3>
+            <p>We may collect certain technical and usage data when you interact with our platform, including:</p>
+            <ul>
+                <li><strong>Device Information:</strong> Your device type, operating system, and unique device identifiers.</li>
+                <li><strong>Usage Data:</strong> Interaction with our app, page visits, and feature engagement.</li>
+                <li><strong>Location Data:</strong> If you grant permission, we may collect your location to enhance service recommendations.</li>
+            </ul>
+        
+            <h3>3. How We Use Your Information</h3>
+            <p>Opaleka utilizes collected data to:</p>
+            <ul>
+                <li>Enable and improve the booking process for clients and service providers.</li>
+                <li>Facilitate secure transactions and prevent fraud.</li>
+                <li>Enhance platform performance and user experience.</li>
+                <li>Communicate important updates, promotions, or service notifications.</li>
+                <li>Comply with legal and regulatory requirements.</li>
+            </ul>
+        
+            <h3>4. Data Retention</h3>
+            <p>We retain your information only as long as necessary to fulfill our obligations and legal requirements:</p>
+            <ul>
+                <li><strong>Active Accounts:</strong> Data is stored while your account remains active.</li>
+                <li><strong>Inactive Accounts:</strong> If you stop using Opaleka, your data is retained for <strong>one year</strong> before being anonymized.</li>
+                <li><strong>Transaction Data:</strong> Payment records are stored for <strong>five years</strong> in compliance with financial regulations.</li>
+                <li><strong>User Reviews & Ratings:</strong> These remain visible to maintain service provider credibility.</li>
+            </ul>
+        
             <div class="important-note">
-                <p><strong>Transparency Notice:</strong> We only collect information that is necessary to provide and improve our services. Your data is never sold to third parties.</p>
+                <p><strong>Transparency Notice:</strong> Opaleka values privacy. Your data is never sold, and we use industry-standard security measures to protect your information.</p>
             </div>
         </section>
+        
 
         <section class="content-section">
-            <h2>Data Protection Measures</h2>
-            <ul>
-                <li>End-to-end encryption for sensitive data</li>
-                <li>Regular security audits and updates</li>
-                <li>Strict access controls and authentication</li>
-                <li>Compliance with global privacy standards</li>
-                <li>Secure data centers with redundancy</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Your Privacy Rights</h2>
-            <p>You have full control over your personal data:</p>
-            <ul>
-                <li>Right to access your personal data</li>
-                <li>Right to correct inaccurate information</li>
-                <li>Right to delete your account and data</li>
-                <li>Right to opt-out of marketing communications</li>
-                <li>Right to data portability</li>
-            </ul>
+            <h2>How We Protect Your Data</h2>
+            <p>Opaleka is committed to ensuring the privacy and security of your information. We implement industry-leading security measures to protect your data from unauthorized access, misuse, or loss.</p>
+        
+            <table class="data-protection-table">
+                <thead>
+                    <tr>
+                        <th>Security Measure</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>End-to-End Encryption</strong></td>
+                        <td>All sensitive data, including payment and personal details, are encrypted both in transit and at rest.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Regular Security Audits</strong></td>
+                        <td>Our systems undergo periodic security checks to identify and mitigate potential vulnerabilities.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Strict Access Controls</strong></td>
+                        <td>Only authorized personnel have access to specific data, ensuring confidentiality and minimizing risks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Compliance with Privacy Regulations</strong></td>
+                        <td>Opaleka follows international data protection standards, including GDPR and local Namibian regulations.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Secure Data Centers</strong></td>
+                        <td>We store data in highly secure, redundant servers to prevent data loss and ensure uninterrupted services.</td>
+                    </tr>
+                </tbody>
+            </table>
+        
             <div class="important-note">
-                <p><strong>User Control:</strong> Access your privacy settings anytime through your account dashboard to manage your preferences.</p>
+                <p><strong>Transparency Commitment:</strong> We do not sell or share your data with third parties for advertising purposes. Our security practices are continuously updated to align with the latest cybersecurity standards.</p>
             </div>
         </section>
-
+        
         <section class="content-section">
-            <h2>Cookie Policy</h2>
-            <p>Our website uses cookies to enhance your experience:</p>
-            <ul>
-                <li>Essential cookies for basic functionality</li>
-                <li>Analytics cookies to improve our service</li>
-                <li>Preference cookies to remember your settings</li>
-                <li>Marketing cookies (optional & configurable)</li>
-            </ul>
+            <h2>Who Receives Your Information and Why?</h2>
+            <p>At Opaleka, we take your privacy seriously. Some of your information may be shared with other users or trusted third parties to enhance your experience, improve our services, and fulfill legal obligations.</p>
+        
+            <table class="privacy-table">
+                <thead>
+                    <tr>
+                        <th>Recipient</th>
+                        <th>Purpose of Data Sharing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Other Opaleka Users</strong></td>
+                        <td>When you book a service, limited information such as your name, profile photo, and contact details may be shared with the service provider or client to facilitate the booking process.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trusted Business Partners</strong></td>
+                        <td>We may work with partners in areas such as insurance, banking, and marketing to offer you additional services relevant to your needs.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Payment & Verification Providers</strong></td>
+                        <td>Third-party payment processors and identity verification services help us securely process transactions and verify user authenticity.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics & Search Engine Providers</strong></td>
+                        <td>We may share usage data (excluding personally identifiable details) to improve our platform’s performance and user experience.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Legal & Regulatory Authorities</strong></td>
+                        <td>We may disclose data if required by law, to comply with legal proceedings, prevent fraud, or ensure user safety.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Business Acquisitions & Mergers</strong></td>
+                        <td>In case of a merger, acquisition, or sale of assets, your data may be transferred to the new business entity under strict confidentiality.</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="important-note">
+                <p><strong>Transparency Commitment:</strong> We never sell your personal data. Any data shared is strictly for improving our services, ensuring secure transactions, or fulfilling legal requirements.</p>
+            </div>
         </section>
-    </div>
+        
+        <section class="content-section">
+            <h2>Cookie Policy & Data Confidentiality</h2>
+            <p>Opaleka uses cookies and similar technologies to provide a secure, efficient, and personalized experience. By using our platform, you consent to the use of cookies as outlined below:</p>
+        
+            <table class="privacy-table">
+                <thead>
+                    <tr>
+                        <th>Type of Cookies</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Essential Cookies</strong></td>
+                        <td>Required for basic functionality such as secure login, session management, and navigation.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytics Cookies</strong></td>
+                        <td>Help us track website traffic, monitor usage trends, and improve user experience.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Preference Cookies</strong></td>
+                        <td>Store your language, theme, and other settings to enhance personalization.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing Cookies</strong></td>
+                        <td>Used to display relevant ads and promotions (these are optional and can be disabled in settings).</td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="important-note">
+                <p><strong>Managing Cookies:</strong> You can update your cookie preferences anytime through your browser settings or by using the cookie management tool on our website.</p>
+            </div>
+        
+            <h2>Message Moderation & Confidentiality</h2>
+            <p>Opaleka prioritizes user privacy while ensuring a secure platform. We may monitor and analyze messages exchanged through our platform for:</p>
+            <ul>
+                <li>Fraud prevention and security compliance</li>
+                <li>Ensuring adherence to our Terms & Conditions</li>
+                <li>Improving customer support and user experience</li>
+            </ul>
+            <p>Our moderation methods include automated scanning for policy violations, but we do not review messages for commercial or advertising purposes.</p>
+        
+            <h2>Password Security</h2>
+            <p>Your password is your responsibility. For security reasons:</p>
+            <ul>
+                <li>Do not share your password with anyone.</li>
+                <li>Use strong, unique passwords for your account.</li>
+                <li>Enable two-factor authentication where possible.</li>
+            </ul>
+        
+            <h2>External Links & Third-Party Websites</h2>
+            <p>Opaleka may contain links to external websites or social media platforms. Please be aware that:</p>
+            <ul>
+                <li>These websites have their own privacy policies.</li>
+                <li>Opaleka is not responsible for third-party data collection practices.</li>
+                <li>Always review privacy policies before sharing personal information on external platforms.</li>
+            </ul>
+        
+            <h2>Updates to Our Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time to reflect legal requirements, technological advancements, or service improvements. Any significant changes will be communicated via our platform.</p>
+        
+            <h2>Contact Us</h2>
+            <p>If you have any questions regarding our privacy practices, you can reach out to us via email at <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
+            
+        </section>
+        
 
     <footer class="footer">
         <p>&copy; 2025 Opaleka. All rights reserved.</p>
