@@ -16,8 +16,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <!-- Web App Manifest -->
 <link rel="manifest" href="site.webmanifest">
-<title>Opaleka - Book Trusted Service Providers in Namibia | Home & Personal Services</title>
-<meta name="description" content="Opaleka connects clients with trusted service providers across Namibia. Easily book home maintenance, personal services, and professional experts with secure payments.">
+<title>Veldt - Book Trusted Service Providers in Namibia | Home & Personal Services</title>
+<meta name="description" content="Veldt connects clients with trusted service providers across Namibia. Easily book home maintenance, personal services, and professional experts with secure payments.">
 <meta name="keywords" content="hire service providers Namibia, book home services, trusted experts Namibia, service booking app Namibia, find professionals online">
 
   <style>
@@ -152,17 +152,54 @@
     }
 
     .hero-image {
-      flex: 1;
-      max-width: 500px;
-      position: relative;
-    }
+  flex: 1;
+  max-width: 600px; /* Increased size slightly */
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers the image */
+  align-items: center;
+}
 
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
+.hero-image img {
+  width: 110%; /* Slightly larger */
+  max-width: 650px; /* Allows a larger image */
+  height: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .hero-image {
+    max-width: 500px; /* Adjust for tablets */
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image {
+    max-width: 100%; /* Ensures it scales properly */
+    padding: 20px;
+  }
+
+  .hero-image img {
+    width: 90%; /* Keeps image slightly smaller for mobile */
+    max-width: 450px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image img {
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px;
+    border-radius: 12px;
+  }
+}
+
 
     .booking-steps {
       padding: 4rem 0;
@@ -545,7 +582,7 @@
   </div>
 
   <header class="navbar">
-    <div class="logo"><a href="index.html">Opaleka</a></div>
+    <div class="logo"><a href="index.html">Veldt</a></div>
     <nav class="menu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -589,7 +626,7 @@
     <section class="hero-section">
       <div class="hero-content">
         <h1>Find & Book Trusted Service Providers in Namibia</h1>
-        <p>Opaleka makes it easy to find reliable service providers in Namibia. Book verified professionals for home repairs, personal training, cleaning, and more – all from your phone.</p>
+        <p>Veldt makes it easy to find reliable service providers in Namibia. Book verified professionals for home repairs, personal training, cleaning, and more – all from your phone.</p>
         <div class="download-buttons">
           <a href="https://play.google.com/store" aria-label="Download on Google Play">
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
@@ -600,7 +637,7 @@
         </div>
       </div>
       <div class="hero-image">
-        <img src="https://baldandhappy.com/wp-content/uploads/2022/09/bald-by-choice-768x480.jpg" alt="Opaleka app interface for booking services in Namibia">
+        <img src="https://baldandhappy.com/wp-content/uploads/2022/09/bald-by-choice-768x480.jpg" alt="Veldt app interface for booking services in Namibia">
 
       </div>
     </section>
@@ -611,7 +648,7 @@
           <div class="step-card">
               <div class="step-number">1</div>
               <h3>Sign Up & Browse</h3>
-              <p>Download Opaleka, create an account, and explore available services.</p>
+              <p>Download Veldt, create an account, and explore available services.</p>
           </div>
           <div class="step-card">
               <div class="step-number">2</div>
@@ -653,27 +690,27 @@
   </div>
 
   <footer class="footer">
-    <p>&copy; 2025 Opaleka. All rights reserved.</p>
+    <p>&copy; 2025 Veldt. All rights reserved.</p>
     <div class="contact-support">
-        <p>For privacy-related inquiries:</p>
-        <p>Email: <a href="mailto:info@opaleka.com">info@opaleka.com</a></p>
-        <p>Support Hours: Monday - Friday, 8:00 AM - 5:00 PM (Namibia Time, GMT+2)</p>
+        <p>For client-related inquiries:</p>
+        <p>Email: <a href="mailto:info@veldtnamibia.com">info@veldtnamibia.com</a></p>
+        <p>Support Hours: Monday - Friday, 9:00 AM - 6:00 PM (Namibia Time, GMT+2)</p>
         <p>Emergency Support: 24/7 for data breach reporting</p>
     </div>
     <div class="social-media">
-        <h3>Follow Us</h3>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/company/opaleka/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61567409875373" target="_blank" aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.instagram.com/opaleka.namibia/" target="_blank" aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
-    </div>
+      <h3>Follow Us</h3>
+      <div class="social-links">
+          <a href="https://www.linkedin.com/company/veldtnamibia/about/?viewAsMember=true" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61567409875373" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/Veldt.namibia/" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+          </a>
+      </div>
+  </div>
 </footer>
 
   <script>
